@@ -1,6 +1,6 @@
 {
   "name": "markdowndoc-theme-default",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Default theme for MarkdownDoc.",
   "author": {
     "name": "Daniel Bannert",
@@ -50,10 +50,10 @@
     "markdowndoc-theme-default"
   ],
   "dependencies": {
+    "consolidate": "^0.13.1",
     "extend": "1.*",
     "html-minifier": "^0.7.2",
     "swig": "^1.4.2",
-    "swig-extras": "0.0.1",
     "themeleon": "^3.0.1"
   }
 }

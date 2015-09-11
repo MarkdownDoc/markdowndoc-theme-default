@@ -1,24 +1,10 @@
 /**
- * Create a local Swig instance instead of altering the globale one
- */
-var swig = new (require('swig').Swig)();
-var extras = require('swig-extras'); // Moar filters
-
-/**
- * Add some filter to swig.
- */
-swigExtras.useFilter(swig, 'split');
-swigExtras.useFilter(swig, 'trim');
-swigExtras.useFilter(swig, 'groupby');
-swig.setFilter('in', (key, object) => key in object);
-
-/**
  * Themeleon template helper, using the Swig module.
  *
  * See <https://github.com/themeleon/themeleon>.
  * See <https://github.com/themeleon/themeleon-swig>.
  */
-var themeleon = require('themeleon')().use(swig);
+var themeleon = require('themeleon')().use('consolidate');
 
 /**
  * Utility function we will use to merge a default configuration
