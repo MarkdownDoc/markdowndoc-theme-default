@@ -5,6 +5,13 @@
  * See <https://github.com/themeleon/themeleon-swig>.
  */
 var themeleon = require('themeleon')().use('consolidate');
+var path = require('path');
+var createFileList = require('create-file-list');
+// var minify = require('minify');
+
+themeleon.use({
+  getFilesList: createFileList,
+});
 
 /**
  * Utility function we will use to merge a default configuration
@@ -22,18 +29,27 @@ var extend = require('extend');
  *
  * The theme function describes the steps to render the theme.
  */
-var theme = themeleon(__dirname, function (t) {
+var theme = themeleon(__dirname, function (theme) {
   /**
    * Copy the assets folder from the theme's directory in the
    * destination directory.
    */
-  t.copy('assets');
+  theme.copy('assets');
+
+  var list = theme.getFilesList(theme.ctx.data);
+
+  console.log(theme.getFilesList(theme.ctx.data));
+  delete theme.ctx['data'];
 
   /**
    * Render `views/index.html.swig` with the theme's context (`ctx` below)
-   * as `index.html` in the destination directory.
+   * as `${file}.html` in the destination directory.
    */
-  t.swig('views/index.html.swig', 'index.html');
+  for (var i = list.length - 1; i >= 0; i--) {
+    // ctx.html = minify(list[i].html, { collapseWhitespace: true });
+    // t.ctx.title = list[i].title;
+    theme.swig('views/index.html.swig', list[i].fileName + '.html');
+  }
 });
 
 /**
@@ -45,14 +61,13 @@ var theme = themeleon(__dirname, function (t) {
  * configuration.
  */
 module.exports = function (dest, ctx) {
+
   if (!('view' in ctx)) {
     ctx.view = {};
   }
 
   // Extend default `view.json` with `ctx.view` object
   ctx.view = extend(require('./view.json'), ctx.view);
-
-  ctx.html = minify(ctx.html, { collapseWhitespace: true });
 
   /**
    * Now we have prepared the data, we can proxy to the Themeleon
