@@ -1,16 +1,17 @@
+'use strict';
+
 /**
  * Themeleon template helper, using the Swig module.
  *
  * See <https://github.com/themeleon/themeleon>.
  * See <https://github.com/themeleon/themeleon-swig>.
  */
-var themeleon = require('themeleon')().use('consolidate');
-var path = require('path');
-var createFileList = require('create-file-list');
-// var minify = require('minify');
+var themeleon = require('themeleon')().use('consolidate'),
+createFileList = require('./lib/create-file-list'),
+minify = require('html-minifier');
 
 themeleon.use({
-  getFilesList: createFileList,
+  getFilesList: createFileList
 });
 
 /**
@@ -36,10 +37,10 @@ var theme = themeleon(__dirname, function (theme) {
    */
   theme.copy('assets');
 
-  var list = theme.getFilesList(theme.ctx.data);
+  var list = theme.getFilesList(theme.ctx.datatree);
 
-  console.log(theme.getFilesList(theme.ctx.data));
-  delete theme.ctx['data'];
+  console.log(list);
+  delete theme.ctx.data;
 
   /**
    * Render `views/index.html.swig` with the theme's context (`ctx` below)
