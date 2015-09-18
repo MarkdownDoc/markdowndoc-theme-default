@@ -1,6 +1,6 @@
 {
   "name": "markdowndoc-theme-default",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Default theme for MarkdownDoc.",
   "author": {
     "name": "Daniel Bannert",
@@ -23,6 +23,7 @@
     "node": ">= 0.10.0"
   },
   "devDependencies": {
+    "babel": "^5.8.23",
     "chai": "^3.2.0",
     "grunt": "^0.4.5",
     "grunt-bump": "^0.5.0",
@@ -50,13 +51,15 @@
     "theme",
     "markdowndoc",
     "stylus",
-    "markdowndoc-theme-default"
+    "markdowndoc-theme-default",
+    "swig"
   ],
   "dependencies": {
-    "consolidate": "^0.13.1",
-    "extend": "1.*",
+    "es6-denodeify": "^0.1.5",
+    "es6-promise": "^3.0.2",
+    "extend": "^3.0.0",
     "html-minifier": "^0.7.2",
     "swig": "^1.4.2",
-    "themeleon": "^3.0.1"
+    "swig-extras": "^0.0.1"
   }
 }
