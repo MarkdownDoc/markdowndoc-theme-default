@@ -1,19 +1,14 @@
 module.exports = {
-  'dev:test' : [
+  'test' : [
     'newer:jsonlint:dev',
     'newer:jscs:dev',
-    // 'newer:jshint:dev',
-    'babel:test',
-    'mochacli'
+    'newer:jshint:dev',
+    // 'babel:test',
+    // 'mochacli'
   ],
   'default': [
     'clean',
-    'babel:theme',
-    'dev:test',
-    'babel:dist'
-  ],
-  'build': [
-    'bump',
-    'default'
+    'babel:dist',
+    'test'
   ]
 };

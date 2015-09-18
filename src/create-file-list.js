@@ -2,7 +2,7 @@
 
 var path = require('path');
 
-module.exports = function (ctx) {
+export default function (ctx) {
   var list = [],
     parse  = function (dir) {
       var i, l;
@@ -33,4 +33,4 @@ module.exports = function (ctx) {
   parse(ctx.datatree);
 
   return list;
-};
+}
