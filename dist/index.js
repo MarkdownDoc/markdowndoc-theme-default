@@ -18,6 +18,12 @@ var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
 
+var _es6Promise = require('es6-promise');
+
+var _es6Denodeify = require('es6-denodeify');
+
+var _es6Denodeify2 = _interopRequireDefault(_es6Denodeify);
+
 var _swig = require('./swig');
 
 var _swig2 = _interopRequireDefault(_swig);
@@ -26,7 +32,9 @@ var _createFileList = require('./create-file-list');
 
 var _createFileList2 = _interopRequireDefault(_createFileList);
 
-var copy = _fsExtra2['default'].copy;
+var denodeify = _es6Denodeify2['default'](_es6Promise.Promise);
+
+var copy = denodeify(_fsExtra2['default'].copy);
 var renderFile = _swig2['default'].renderFile;
 var writeFile = _fsExtra2['default'].outputFile;
 
@@ -53,7 +61,7 @@ function render(list, template, ctx) {
 }
 
 exports['default'] = function (dest, ctx) {
-  var template = _path2['default'].resolve(__dirname, 'views/index.html.swig');
+  var template = _path2['default'].resolve(__dirname, '../src/views/index.html.swig');
 
   if (!('view' in ctx)) {
     ctx.view = {};
@@ -66,9 +74,15 @@ exports['default'] = function (dest, ctx) {
 
   delete ctx.datatree;
 
-  render(list, template, ctx);
+  var renderHtml = denodeify(render);
 
-  copy(_path2['default'].resolve(__dirname, '../assets'), _path2['default'].resolve(ctx.destAbsolute, 'assets'));
+  return _es6Promise.Promise.all([renderHtml(list, template, ctx).then(copy(_path2['default'].resolve(__dirname, '../assets'), _path2['default'].resolve(ctx.destAbsolute, 'assets'), function (err) {
+    if (err) {
+      return console.error(err);
+    }
+
+    console.log('Assets folder copied successfully!');
+  }))]);
 };
 
 module.exports = exports['default'];

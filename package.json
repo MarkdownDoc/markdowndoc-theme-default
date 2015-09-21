@@ -63,6 +63,8 @@
     "swig"
   ],
   "dependencies": {
+    "es6-denodeify": "^0.1.5",
+    "es6-promise": "^3.0.2",
     "extend": "^3.0.0",
     "html-minifier": "^0.7.2",
     "swig": "^1.4.2",

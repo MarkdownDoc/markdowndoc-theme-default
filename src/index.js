@@ -2,11 +2,15 @@ import extend  from 'extend';
 import fse from 'fs-extra';
 import { minify } from 'html-minifier';
 import path from 'path';
+import { Promise } from 'es6-promise';
+import esDenodeify from 'es6-denodeify';
+
+const denodeify = esDenodeify(Promise);
 
 import swig from './swig';
 import createFileList from './create-file-list';
 
-const copy       = fse.copy;
+const copy = denodeify(fse.copy);
 const renderFile = swig.renderFile;
 const writeFile  = fse.outputFile;
 
@@ -35,7 +39,7 @@ function render(list, template, ctx) {
 export default(dest, ctx) => {
   const template = path.resolve(
     __dirname,
-    'views/index.html.swig'
+    '../src/views/index.html.swig'
   );
 
   if (!('view' in ctx)) {
@@ -49,10 +53,21 @@ export default(dest, ctx) => {
 
   delete ctx.datatree;
 
-  render(list, template, ctx);
+  const renderHtml = denodeify(render);
 
-  copy(
-    path.resolve(__dirname, '../assets'),
-    path.resolve(ctx.destAbsolute, 'assets')
-  );
+  return Promise.all([
+    renderHtml(list, template, ctx).then(
+      copy(
+        path.resolve(__dirname, '../assets'),
+        path.resolve(ctx.destAbsolute, 'assets'),
+        function(err) {
+          if (err) {
+            return console.error(err);
+          }
+
+          console.log('Assets folder copied successfully!');
+        }
+      )
+    ),
+  ]);
 };
