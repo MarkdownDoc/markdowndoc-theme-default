@@ -10,7 +10,7 @@ module.exports = {
         './node_modules/sass-material-colors/sass/'
       ],
       bundleExec: true,
-      outputStyle: compressed
+      outputStyle: 'compressed'
     },
     files: {
       'assets/css/main.css': 'src/scss/main.scss'
