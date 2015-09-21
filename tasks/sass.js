@@ -4,7 +4,7 @@
 module.exports = {
   dev: {
     options: {
-      sourceMap: true,
+      sourceMap: false,
       includePaths: [
         './node_modules/foundation-sites/scss/',
         './node_modules/sass-material-colors/sass/'

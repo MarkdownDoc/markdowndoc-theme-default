@@ -56,18 +56,10 @@ export default(dest, ctx) => {
   const renderHtml = denodeify(render);
 
   return Promise.all([
-    renderHtml(list, template, ctx).then(
-      copy(
-        path.resolve(__dirname, '../assets'),
-        path.resolve(ctx.destAbsolute, 'assets'),
-        function(err) {
-          if (err) {
-            return console.error(err);
-          }
-
-          console.log('Assets folder copied successfully!');
-        }
-      )
+    renderHtml(list, template, ctx),
+    copy(
+      path.resolve(__dirname, '../assets'),
+      path.resolve(ctx.destAbsolute, 'assets')
     ),
   ]);
 };

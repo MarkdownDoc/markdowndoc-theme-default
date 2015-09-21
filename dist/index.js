@@ -76,13 +76,7 @@ exports['default'] = function (dest, ctx) {
 
   var renderHtml = denodeify(render);
 
-  return _es6Promise.Promise.all([renderHtml(list, template, ctx).then(copy(_path2['default'].resolve(__dirname, '../assets'), _path2['default'].resolve(ctx.destAbsolute, 'assets'), function (err) {
-    if (err) {
-      return console.error(err);
-    }
-
-    console.log('Assets folder copied successfully!');
-  }))]);
+  return _es6Promise.Promise.all([renderHtml(list, template, ctx), copy(_path2['default'].resolve(__dirname, '../assets'), _path2['default'].resolve(ctx.destAbsolute, 'assets'))]);
 };
 
 module.exports = exports['default'];
