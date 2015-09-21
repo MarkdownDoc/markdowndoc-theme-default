@@ -26,15 +26,15 @@ var _createFileList = require('./create-file-list');
 
 var _createFileList2 = _interopRequireDefault(_createFileList);
 
-// const copy       = fse.copy;
+var copy = _fsExtra2['default'].copy;
 var renderFile = _swig2['default'].renderFile;
 var writeFile = _fsExtra2['default'].outputFile;
 
 function getRenderPathForPage(file, dest) {
   var sep = _path2['default'].sep;
-  dest = dest + sep;
+  var d = dest + sep;
 
-  return dest + file.path + sep + file.fileName + '.html';
+  return d + file.path + sep + file.fileName + '.html';
 }
 
 function renderSinglePage(data, template) {
@@ -53,7 +53,7 @@ function render(list, template, ctx) {
 }
 
 exports['default'] = function (dest, ctx) {
-  var template = _path2['default'].resolve(__dirname, '../views/index.html.swig');
+  var template = _path2['default'].resolve(__dirname, 'views/index.html.swig');
 
   if (!('view' in ctx)) {
     ctx.view = {};
@@ -66,12 +66,9 @@ exports['default'] = function (dest, ctx) {
 
   delete ctx.datatree;
 
-  // copy(
-  //   path.resolve(__dirname, '../assets'),
-  //   path.resolve(ctx.destAbsolute, 'assets')
-  // );
-
   render(list, template, ctx);
+
+  copy(_path2['default'].resolve(__dirname, '../assets'), _path2['default'].resolve(ctx.destAbsolute, 'assets'));
 };
 
 module.exports = exports['default'];

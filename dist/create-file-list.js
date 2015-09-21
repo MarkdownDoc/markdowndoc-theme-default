@@ -1,23 +1,29 @@
 'use strict';
 
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
+
 exports.__esModule = true;
-var path = require('path');
+
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
 
 exports['default'] = function (ctx) {
-  var list = [],
-      parse = function parse(dir) {
-    var i, l;
+  var list = [];
+  var parse = function parse(dir) {
+    var i = undefined;
+    var l = undefined;
 
     // loop through files
     l = dir.files.length;
 
     for (i = 0; i < l; i++) {
-      var replacePath = path.resolve(ctx.src) + path.sep;
-      var dirPath = path.resolve(dir.path);
+      var replacePath = _path2['default'].resolve(ctx.src) + _path2['default'].sep;
+      var dirPath = _path2['default'].resolve(dir.path);
 
       list.push({
         path: dir.path === ctx.src ? '' : dirPath.replace(replacePath, ''),
-        fileName: path.basename(dir.files[i].fileName, ctx['file-type']),
+        fileName: _path2['default'].basename(dir.files[i].fileName, ctx['file-type']),
         html: dir.files[i].html,
         title: dir.files[i].title
       });

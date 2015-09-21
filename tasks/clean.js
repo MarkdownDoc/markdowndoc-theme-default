@@ -4,6 +4,7 @@
 module.exports = {
   all: [
     'dist',
-    'tests/specs'
+    'tests/specs',
+    'assets/css'
   ]
 };
