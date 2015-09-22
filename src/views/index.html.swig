@@ -2,6 +2,6 @@
 
 {% block content %}
   <section id="searchtext" class="container">
-    { html | raw }
+    {{ html | raw }}
   </section>
 {% endblock %}
