@@ -16,7 +16,7 @@ footer {
       height: rem-calc(50);
       width: rem-calc(50);
       background-image: url('../images/mdd-logo.png');
-      @include image-2x('../images/mdd-logo.png', 'png', $size: 100%);
+      @include image-2x('../images/mdd-logo', 'png', $size: 100%);
       overflow: hidden;
       display: block;
     }
