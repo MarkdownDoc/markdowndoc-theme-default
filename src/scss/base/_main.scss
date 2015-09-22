@@ -2,15 +2,7 @@ main {
   background: material-color('grey', '100');
 
   article {
-    header {
-      background: material-color('grey', '300');
-      border-bottom: 2px solid material-color('grey', '200');
-
-      h1 {
-        color: material-color('grey', '700');
-        text-transform: uppercase;
-      }
-    }
+    margin-top: rem-calc(80);
 
     & > section {
       &.container {

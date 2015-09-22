@@ -4,7 +4,7 @@
     <label class='tgl-btn' data-tg-off='Hide' data-tg-on='Show' for='cb3'>
   </div>
   <div class="column medium-6 large-5 xlarge-6 show-for-large-up">
-    <h2><a href="" title="">{{name}}</a></h2>
+    <h2>{{title}}</h2>
   </div>
   <div class="column small-12 medium-5">
     <div class="markdowndoc-searchbar searchbar">

@@ -21,16 +21,19 @@ function getRenderPathForPage(file, dest) {
   return d + file.path + sep + file.fileName + '.html';
 }
 
-function renderSinglePage(data, template) {
-  const html = renderFile(template, { html: data.html, title: data.title });
+function renderSinglePage(template, data) {
+  const html = renderFile(template, data);
 
   return minify(html, { collapseWhitespace: true });
 }
 
 function render(list, template, ctx) {
   for (let i = list.length - 1; i >= 0; i--) {
+    ctx.html  = list[i].html;
+    ctx.title = list[i].title;
+
     const pagePath = getRenderPathForPage(list[i], ctx.destAbsolute);
-    const html     = renderSinglePage(list[i], template);
+    const html     = renderSinglePage(template, ctx);
 
     writeFile(pagePath, html);
   }

@@ -45,16 +45,19 @@ function getRenderPathForPage(file, dest) {
   return d + file.path + sep + file.fileName + '.html';
 }
 
-function renderSinglePage(data, template) {
-  var html = renderFile(template, { html: data.html, title: data.title });
+function renderSinglePage(template, data) {
+  var html = renderFile(template, data);
 
   return _htmlMinifier.minify(html, { collapseWhitespace: true });
 }
 
 function render(list, template, ctx) {
   for (var i = list.length - 1; i >= 0; i--) {
+    ctx.html = list[i].html;
+    ctx.title = list[i].title;
+
     var pagePath = getRenderPathForPage(list[i], ctx.destAbsolute);
-    var html = renderSinglePage(list[i], template);
+    var html = renderSinglePage(template, ctx);
 
     writeFile(pagePath, html);
   }

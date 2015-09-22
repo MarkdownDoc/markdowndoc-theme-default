@@ -15,7 +15,7 @@
   {# Include head content #}
   {% include "partials/head.html.swig" with project_title %}
 </head>
-<body>
+<body class="row">
   {# Include Sidebar menu #}
   <aside class="sidebar columns medium-4 large-3 xlarge-2" role="nav">
     {% include "partials/sidebar-menu.html.swig" %}
@@ -27,13 +27,13 @@
     {# Include top navbar #}
     {% include "partials/header.html.swig" with project_title %}
 
+    <article>
       {% block content %}{% endblock %}
     </article>
 
     {# Include footer #}
     {% include "partials/footer.html.swig" with project_title %}
   </main>
-
 
   {# Include scripts #}
   {% include "partials/scripts.html.swig" %}
