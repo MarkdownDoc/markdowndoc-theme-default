@@ -1,0 +1,16 @@
+aside {
+  @media #{$medium-up} {
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  background: material-color('grey', '200');
+
+  header {
+    padding: 1em 0 1em 0;
+
+    @media #{$medium-up} {
+      border-bottom: rem-calc(2) material-color('grey', '300') solid;
+    }
+  }
+}

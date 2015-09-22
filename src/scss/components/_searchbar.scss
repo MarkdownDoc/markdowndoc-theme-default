@@ -15,7 +15,7 @@
 /**
  * Searchbar form
  */
-.searchbar__form {
+.searchbar-form {
   float: right;
   position: relative;
 
@@ -31,7 +31,7 @@
 /**
  * Searchbar input
  */
-.searchbar__field {
+.searchbar-field {
   border: none;
   padding: 0.5em;
   font-size: 1em;
@@ -42,7 +42,7 @@
 /**
  * Searchbar dropdown
  */
-.searchbar__suggestions {
+.searchbar-suggestions {
   position: absolute;
   top: 100%;
   right: 0;

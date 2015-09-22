@@ -1,0 +1,26 @@
+main {
+  background: material-color('grey', '100');
+
+  article {
+    header {
+      background: material-color('grey', '300');
+      border-bottom: 2px solid material-color('grey', '200');
+
+      h1 {
+        color: material-color('grey', '700');
+        text-transform: uppercase;
+      }
+    }
+
+    & > section {
+      &.container {
+        max-width: rem-calc(1000);
+        margin: rem-calc(15) auto rem-calc(15) auto;
+      }
+    }
+  }
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}

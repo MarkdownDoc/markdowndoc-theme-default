@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+
+  <title></title>
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,500,700' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width">
+  <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible">
+</head>
+<body class="row">
+  <aside class="sidebar columns medium-4 large-3 xlarge-2" role="nav">
+    <header class="row text-center">
+      <section class="column medium-12">
+        Menu
+      </section>
+    </header>
+
+    <nav class="hide-for-small-only">
+      <ul class="side-nav">
+        <li></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main columns medium-8 large-9 xlarge-10" role="main">
+
+    <header class="header row" role="banner">
+      <div class="column medium-1 large-2 xlarge-1 show-for-medium-up">
+        <input class='tgl tgl-skewed' id='cb3' type='checkbox'>
+        <label class='tgl-btn' data-tg-off='Hide' data-tg-on='Show' for='cb3'>
+      </div>
+      <div class="column medium-6 large-5 xlarge-6 show-for-large-up">
+        <h2><a href="" title="">{{name}}</a></h2>
+      </div>
+      <div class="column small-12 medium-5">
+        <div class="markdowndoc-searchbar searchbar">
+           <label for="js-search-input" class="visually-hidden">Search</label>
+           <div class="searchbar-form" id="js-search">
+             <input name="search" type="search" class="searchbar-field" autocomplete="off" autofocus id="js-search-input" placeholder="Search" />
+             <ul class="searchbar-suggestions" id="js-search-suggestions"></ul>
+           </div>
+         </div>
+      </div>
+    </header>
+
+    <article>
+      <header class="row text-center">
+        <section class="column medium-12">
+          <h1>{{title}}</h1>
+        </section>
+      </header>
+
+      {% block content %}
+        <section class="container">
+          {{ html | raw }}
+        </section>
+      {% endblock %}
+    </article>
+
+    <footer class="footer row">
+      <section class="column small-8">
+        <p>{{name}} - {{version}}, under {{license}}.</p>
+      </section>
+      <section class="column small-4">
+        <h2>
+          <a href="https://github.com/MarkdownDoc/markdowndoc" title="MarkdownDoc">
+            <span>MarkdownDoc</span>
+          </a>
+        </h2>
+      </section>
+    </footer>
+  </main>
+</body>
+</html>

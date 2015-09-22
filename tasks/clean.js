@@ -5,6 +5,6 @@ module.exports = {
   all: [
     'dist',
     'tests/specs',
-    'assets/css'
+    'assets'
   ]
 };

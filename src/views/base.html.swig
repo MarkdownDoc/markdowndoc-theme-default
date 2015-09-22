@@ -17,17 +17,18 @@
 </head>
 <body>
   {# Include Sidebar menu #}
-  <aside class="sidebar" role="nav">
+  <aside class="sidebar columns medium-4 large-3 xlarge-2" role="nav">
     {% include "partials/sidebar-menu.html.swig" %}
   </aside>
 
   {# Main container #}
-  <main class="main" role="main">
+  <main class="main columns medium-8 large-9 xlarge-10" role="main">
 
     {# Include top navbar #}
     {% include "partials/header.html.swig" with project_title %}
 
-    {% block content %}{% endblock %}
+      {% block content %}{% endblock %}
+    </article>
 
     {# Include footer #}
     {% include "partials/footer.html.swig" with project_title %}

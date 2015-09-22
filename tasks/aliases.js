@@ -11,6 +11,7 @@ module.exports = {
     'clean',
     'test',
     'sass:dev',
+    'copy:dev',
     'babel:dist',
   ]
 };

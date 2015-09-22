@@ -1,0 +1,27 @@
+footer {
+  background: material-color('grey', '200');
+  padding: rem-calc(1) 0 rem-calc(1) 0;
+
+  p {
+    line-height: rem-calc(55);
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-bottom: rem-calc(3);
+    float: right;
+    color: material-color('grey', '700');
+
+    a {
+      height: rem-calc(50);
+      width: rem-calc(50);
+      background-image: url('../images/mdd-logo.png');
+      @include image-2x('../images/mdd-logo.png', 'png', $size: 100%);
+      overflow: hidden;
+      display: block;
+    }
+    span {
+      display: none;
+    }
+  }
+}

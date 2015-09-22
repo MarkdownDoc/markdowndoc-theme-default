@@ -10,7 +10,7 @@ const denodeify = esDenodeify(Promise);
 import swig from './swig';
 import createFileList from './create-file-list';
 
-const copy = denodeify(fse.copy);
+const copy       = denodeify(fse.copy);
 const renderFile = swig.renderFile;
 const writeFile  = fse.outputFile;
 
