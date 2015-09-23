@@ -6,8 +6,7 @@ module.exports = {
     options: {
       sourceMap: false,
       includePaths: [
-        './node_modules/foundation-sites/scss/',
-        './node_modules/sass-material-colors/sass/'
+        './node_modules/foundation-sites/scss/'
       ],
       bundleExec: true,
       outputStyle: 'compressed'

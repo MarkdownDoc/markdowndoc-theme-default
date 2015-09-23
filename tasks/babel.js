@@ -17,7 +17,7 @@ module.exports = {
   },
   pre: {
     options: {
-      sourceMap: true,
+      sourceMap: false,
       modules: 'ignore'
     },
     files: {

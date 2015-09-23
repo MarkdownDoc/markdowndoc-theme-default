@@ -230,7 +230,6 @@ var SearchClass = (function ($) {
 
   return Search;
 })(jQuery);
-//# sourceMappingURL=search.js.map
 
 'use strict';
 
@@ -301,4 +300,3 @@ var NavClass = (function ($) {
 
   return Nav;
 })(jQuery);
-//# sourceMappingURL=nav.js.map
