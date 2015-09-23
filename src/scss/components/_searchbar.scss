@@ -51,7 +51,7 @@
   padding: 0;
   margin: 0;
   list-style: none;
-  z-index: z('default') + 1;
+  z-index: 1;
 
   /**
    * Hidden when empty
@@ -61,11 +61,11 @@
   }
 
   .selected {
-    background: material-color('grey', '500');
+    background: $grey-500;
   }
 
   li {
-    border-bottom: 1px solid material-color('grey', '300');
+    border-bottom: 1px solid $grey-300;
 
     &:last-of-type {
       border: none;

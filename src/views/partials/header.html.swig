@@ -11,7 +11,6 @@
        <label for="js-search-input" class="visually-hidden">Search</label>
        <div class="searchbar-form" id="js-search">
          <input name="search" type="search" class="searchbar-field" autocomplete="off" autofocus id="js-search-input" placeholder="Search" />
-         <ul class="searchbar-suggestions" id="js-search-suggestions"></ul>
        </div>
      </div>
   </div>

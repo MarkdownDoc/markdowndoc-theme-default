@@ -12,6 +12,9 @@ module.exports = {
     'test',
     'sass:dev',
     'copy:dev',
+    'babel:pre',
     'babel:dist',
+    'concat:assets',
+    'clean:pre',
   ]
 };

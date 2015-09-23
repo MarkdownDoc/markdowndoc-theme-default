@@ -7,19 +7,19 @@ aside {
     box-shadow: 1px 0 1.5px rgba(0,0,0,0.12);
     width: 280px;
     z-index: 2;
-    border-right: 1px solid #e0e0e0;
+    border-right: 1px solid $grey-300;
     transition: 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
     height: 100%;
     overflow-y: scroll;
   }
 
-  background: material-color('grey', '200');
+  background: $grey-200;
 
   header {
     padding: 1em 0 1em 0;
 
     @media #{$medium-up} {
-      border-bottom: rem-calc(2) material-color('grey', '300') solid;
+      border-bottom: rem-calc(2) $grey-300 solid;
     }
   }
 }

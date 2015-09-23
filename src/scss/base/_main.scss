@@ -1,5 +1,6 @@
 main {
-  background: material-color('grey', '100');
+  background: $white;
+  transition: 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
 
   article {
     margin-top: rem-calc(80);

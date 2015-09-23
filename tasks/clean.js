@@ -6,5 +6,8 @@ module.exports = {
     'dist',
     'tests/specs',
     'assets'
+  ],
+  pre: [
+    'pre'
   ]
 };
