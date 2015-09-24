@@ -5,7 +5,8 @@
 </header>
 
 <nav class="hide-for-small-only">
+{{ links|json }}
   <ul class="side-nav">
-    <li></li>
+    {{ linkbuilder }}
   </ul>
 </nav>
