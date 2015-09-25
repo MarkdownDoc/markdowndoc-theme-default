@@ -42,8 +42,6 @@ function render(list, template, ctx) {
     ctx.linkbuilder = buildLinkHtml(linkList);
     ctx.assetsPath  = backslashes;
 
-    delete ctx.datatree;
-
     const pagePath = getRenderPathForPage(list[i], ctx.destAbsolute);
     const html     = renderSinglePage(template, ctx);
 

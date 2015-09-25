@@ -24,7 +24,16 @@ export default function(linkList) {
     l = list.directories.length;
 
     for (i = 0; i < l; i++) {
-      html.push('<ul>' + build(list.directories[i]) + '<ul>');
+      html.push(
+        '<li>' +
+        '<input type="checkbox" checked="checked" id="' +
+        list.directories[i].menu + '" />' +
+        '<label class="tree_label" for="' +
+        list.directories[i].menu + '">' +
+        list.directories[i].menu +
+        '</label>' +
+        '<ul>' + build(list.directories[i]) + '</ul></li>'
+      );
     }
 
     return html;

@@ -5,8 +5,13 @@
 </header>
 
 <nav class="hide-for-small-only">
-{{ links|json }}
-  <ul class="side-nav">
-    {{ linkbuilder }}
+  <ul class="tree">
+    <li>
+      <input type="checkbox" checked="checked" id="c1" />
+      <label class="tree_label" for="c1">Home</label>
+      <ul>
+        {{ linkbuilder | join(',') | safe | replace(',', '', 'g') }}
+      </ul>
+    </li>
   </ul>
 </nav>

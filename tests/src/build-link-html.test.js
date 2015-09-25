@@ -5,6 +5,7 @@ var createLinkList = require('../specs/create-link-list');
 var utils          = require('../specs/utils');
 var assert = require('chai').assert;
 var expect = require('chai').expect;
+var path           = require('path');
 
 describe('#link html', function() {
   it('build', function () {
@@ -69,6 +70,6 @@ describe('#link html', function() {
       }
     };
     var data = createLinkList(ctx, backslashes);
-    console.log(JSON.stringify(buildLinkHtml(data)));
+    // console.log(buildLinkHtml(data));
   });
 });

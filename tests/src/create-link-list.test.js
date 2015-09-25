@@ -6,12 +6,8 @@ var assert         = require('chai').assert;
 var expect         = require('chai').expect;
 var path           = require('path');
 
-describe('#default', function() {
-  it('repeat a string on multiplikator', function () {
-    expect(utils.repeat('../', 2)).to.equal('../../');
-  });
-
-  it('creat a link list', function() {
+describe('#create link list', function() {
+  it('creat', function() {
     var backslashes = 'test' !== '' ?
     utils.repeat('..' + path.sep, utils.osSplit('test').length) :
     '';
@@ -73,7 +69,7 @@ describe('#default', function() {
       }
     };
 
-    console.log(JSON.stringify(createLinkList(ctx, backslashes)));
+    // console.log(createLinkList(ctx, backslashes));
     // expect(theme.repeat('../', 2)).to.equal('../../');
   });
 });

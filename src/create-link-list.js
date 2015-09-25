@@ -24,7 +24,6 @@ export default function(ctx, backslashes) {
       );
 
       delete tree.files[i].html;
-      delete tree.files[i].fileName;
 
       tree.menu = tree.path === ctx.src ? 'Home' : path.basename(tree.path);
       tree.files[i].url = backslashes + subpath + name + '.html';
