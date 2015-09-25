@@ -2,6 +2,8 @@
 
 exports.__esModule = true;
 
+var _utils = require('./utils');
+
 exports['default'] = function (linkList) {
   function build(list) {
     var l = undefined;
@@ -20,7 +22,7 @@ exports['default'] = function (linkList) {
     l = list.directories.length;
 
     for (i = 0; i < l; i++) {
-      html.push('<li>' + '<input type="checkbox" checked="checked" id="' + list.directories[i].menu + '" />' + '<label class="tree_label" for="' + list.directories[i].menu + '">' + list.directories[i].menu + '</label>' + '<ul>' + build(list.directories[i]) + '</ul></li>');
+      html.push('<li>' + '<input type="checkbox" checked="checked" id="' + list.directories[i].menu + '" />' + '<label class="tree_label" for="' + list.directories[i].menu + '">' + _utils.capitalizeFirstLetter(list.directories[i].menu) + '</label>' + '<ul>' + build(list.directories[i]) + '</ul></li>');
     }
 
     return html;

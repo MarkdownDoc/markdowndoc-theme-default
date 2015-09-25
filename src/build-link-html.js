@@ -1,3 +1,6 @@
+
+import { capitalizeFirstLetter } from './utils';
+
 export default function(linkList) {
   function build(list) {
     let l;
@@ -30,7 +33,7 @@ export default function(linkList) {
         list.directories[i].menu + '" />' +
         '<label class="tree_label" for="' +
         list.directories[i].menu + '">' +
-        list.directories[i].menu +
+        capitalizeFirstLetter(list.directories[i].menu) +
         '</label>' +
         '<ul>' + build(list.directories[i]) + '</ul></li>'
       );
