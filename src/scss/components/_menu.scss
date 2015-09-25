@@ -4,8 +4,11 @@
     list-style-type: none;
 
     a {
+      width: 100%;
       color: $grey-700;
       font-size: rem-calc(14);
+      display: block;
+
       &:hover {
         color: $gwa-pink;
       }
